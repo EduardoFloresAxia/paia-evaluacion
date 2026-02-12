@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAI-A | Axia Desarrollo Humano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 pb-20">
+    <nav class="bg-white border-b border-slate-200 py-4 px-6 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <span class="font-bold text-xl tracking-tight text-indigo-700">AXIA <span class="text-slate-500 font-light">DESARROLLO HUMANO</span></span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Protocolo PAI-A</span>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto mt-10 p-4">
+        <div id="sectionID" class="bg-white rounded-2xl shadow-xl p-8 border border-slate-200">
+            <h1 class="text-2xl font-bold text-slate-800 mb-2">Registro de Evaluación</h1>
+            <p class="text-slate-500 mb-8">Por favor, ingresa los datos del adolescente para comenzar la aplicación.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-600">Nombre Completo</label>
+                    <input type="text" id="nombre" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-600">Edad</label>
+                    <input type="number" id="edad" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-600">Correo Electrónico</label>
+                    <input type="email" id="email" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-600">Fecha de Aplicación</label>
+                    <input type="date" id="fecha" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                </div>
+            </div>
+            <button onclick="iniciarPrueba()" class="w-full mt-10 bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all">
+                Comenzar Evaluación
+            </button>
+        </div>
+
+        <form id="formTest" class="hidden space-y-6">
+            <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100 mb-8">
+                <p class="text-indigo-800 text-sm italic font-medium">Instrucciones: Lee cada frase y decide en qué medida describe tu forma de ser. (F: Falso, LV: Ligeramente Verdadero, BV: Bastante Verdadero, CV: Completamente Verdadero).</p>
+            </div>
+            <div id="preguntas"></div>
+            <button type="submit" id="btnEnviar" class="w-full bg-indigo-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-indigo-700 shadow-xl mt-10">
+                Finalizar y Resguardar en Drive
+            </button>
+        </form>
+    </main>
+
+    <script>
+        const reactivos = ["Me gusta la mayoría de la gente...", "A menudo me siento cansado...", "Mis nervios me impiden..."]; // Aquí van los 264
+        const container = document.getElementById('preguntas');
+
+        function iniciarPrueba() {
+            document.getElementById('sectionID').style.display = 'none';
+            document.getElementById('formTest').classList.remove('hidden');
+            renderizar();
+            window.scrollTo(0,0);
+        }
+
+        function renderizar() {
+            reactivos.forEach((txt, i) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-xl border border-slate-200 shadow-sm";
+                card.innerHTML = `
+                    <p class="font-bold text-slate-700 mb-4">${i+1}. ${txt}</p>
+                    <div class="grid grid-cols-4 gap-2">
+                        ${['F','LV','BV','CV'].map((label, val) => `
+                            <label class="flex flex-col items-center">
+                                <input type="radio" name="r${i}" value="${val}" required class="hidden peer">
+                                <span class="w-full py-2 text-center border-2 border-slate-100 rounded-lg peer-checked:bg-indigo-600 peer-checked:text-white peer-checked:border-indigo-600 text-xs font-bold transition-all cursor-pointer">${label}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        document.getElementById('formTest').onsubmit = async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnEnviar');
+            btn.disabled = true;
+            btn.innerText = "Enviando resultados al expediente...";
+
+            const payload = {
+                nombre: document.getElementById('nombre').value,
+                edad: document.getElementById('edad').value,
+                email: document.getElementById('email').value,
+                fecha: document.getElementById('fecha').value,
+                respuestas: reactivos.map((_, i) => new FormData(e.target).get(`r${i}`))
+            };
+
+            const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxDf2OhqV3W3xcAogiQ_ytN9VarBhSEalVGgeGRxrVnKI6mMdcd_7A9NKxy213hqYos/exec'; // Pega la URL del paso 2
+
+            await fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+            alert('¡Evaluación terminada! El documento está en la carpeta de Drive.');
+            location.reload();
+        };
+    </script>
+</body>
+</html>
