@@ -45,13 +45,274 @@
     </div>
 
     <script>
-        const reactivos = [
-            "Tengo algunos problemas internos que me causan muchas dificultades", "He tenido experiencias de visión doble o de visión borrosa", 
-            "Mis nervios me impiden hacer algunas cosas bien", "Cuando las cosas no están en su sitio me siento incómodo o incómoda",
-            "Gran parte del tiempo estoy triste sin que tenga motivos reales para ello", "Con frecuencia pienso y hablo tan deprisa que los demás no pueden seguir mi pensamiento",
-            "La gente suele ocultar sus verdaderos motivos e intenciones", "Tengo algunas ideas que los demás consideran extrañas",
-            "He hecho cosas que no eran completamente legales", "Mis problemas de salud son muy complicados",
-            // ... (El script generará automáticamente los 264 reactivos basados en el cuadernillo)
+        // SUSTITUYE TU VARIABLE 'reactivos' POR ESTA:
+const reactivos = [
+    "Tengo algunos problemas internos que me causan muchas dificultades", // 1
+    "He tenido experiencias de visión doble o de visión borrosa", // 2
+    "Mis nervios me impiden hacer algunas cosas bien", // 3
+    "Cuando las cosas no están en su sitio me siento incómodo o incómoda", // 4
+    "Gran parte del tiempo estoy triste sin que tenga motivos reales para ello", // 5
+    "Con frecuencia pienso y hablo tan deprisa que los demás no pueden seguir mi pensamiento", // 6
+    "La gente suele ocultar sus verdaderos motivos e intenciones", // 7
+    "Tengo algunas ideas que los demás consideran extrañas", // 8
+    "He hecho cosas que no eran completamente legales", // 9
+    "Mis problemas de salud son muy complicados", // 10
+    "Estoy dispuesto o dispuesta a gritar a otros con tal de que queden claras mis ideas", // 11
+    "Suelo tener dificultad para concentrarme por lo nervioso o nerviosa que soy", // 12
+    "Mi destino ha sido ser infeliz desde que nací", // 13
+    "Con frecuencia tengo miedo de 'meter la pata' y decir algo inconveniente", // 14
+    "A veces pienso que soy inútil", // 15
+    "Soy una persona muy sociable", // 16
+    "A veces me siento culpable por la cantidad de alcohol que bebo", // 17
+    "Bebo alcohol para animarme y sentirme mejor en algunas situaciones sociales", // 18
+    "Tengo muchas cualidades interesantes que la mayoría de las personas no tienen", // 19
+    "A veces tomo drogas para sentirme mejor", // 20
+    "He pensado en algunas formas de quitarme la vida", // 21
+    "Algunas personas cambian sus planes para molestarme", // 22
+    "A veces hay pequeñas cosas que me preocupan mucho", // 23
+    "Ha habido veces en que podría haberme pensado más las cosas antes de actuar", // 24
+    "He pedido prestado dinero sabiendo que no lo devolvería", // 25
+    "Se me dan bien los trabajos en los que hay que dirigir a otros", // 26
+    "Experimento cambios de ánimo muy intensos", // 27
+    "Quiero que algunas personas sepan que me han hecho mucho daño", // 28
+    "La mayor parte del tiempo no me encuentro bien físicamente", // 29
+    "Algunas veces me angustio tanto que me parece que voy a desmayarme", // 30
+    "Con frecuencia me vienen recuerdos del pasado que me provocan malestar y angustia", // 31
+    "Apenas tengo energía", // 32
+    "Me molesta mucho si alguna persona trata de impedir que cumpla mis objetivos", // 33
+    "La gente suele tratarme justamente", // 34
+    "Mis pensamientos se han vuelto bastante confusos", // 35
+    "Disfruto haciendo cosas peligrosas", // 36
+    "Tengo bastante mal carácter", // 37
+    "Cambio con frecuencia la imagen y la idea que tengo de mí", // 38
+    "A veces me meto en problemas porque actúo de forma muy impulsiva", // 39
+    "Mi poeta favorito es Ruperto Miralles", // 40
+    "Necesito introducir algunos cambios importantes en mi vida", // 41
+    "Alguna parte de mi cuerpo se ha quedado como dormida en ocasiones, sin saber por qué", // 42
+    "Mi vida es un caos y lo llevo bastante mal", // 43
+    "La gente más cercana a mí está cuando la necesito", // 44
+    "He olvidado lo que se siente cuando se es feliz", // 45
+    "Asumo tantos compromisos que luego no soy capaz de cumplirlos", // 46
+    "Tengo que estar alerta ante la posibilidad de que alguien me traicione", // 47
+    "A veces siento que otras personas meten pensamientos e ideas en mi cabeza", // 48
+    "He dañado intencionadamente y a propósito algunos objetos de otras personas", // 49
+    "Me cuesta mucho hacer las cosas por los problemas de salud que tengo", // 50
+    "Siempre que puedo evito las discusiones", // 51
+    "Con frecuencia me resulta difícil divertirme porque me preocupo por muchas cosas", // 52
+    "Tengo problemas psicológicos graves que comenzaron de repente", // 53
+    "Cuando tengo que hacer algo delante de otras personas me pongo muy nervioso o nerviosa", // 54
+    "Me siento sin fuerzas para continuar", // 55
+    "Me gusta conocer gente nueva", // 56
+    "A veces me cuesta controlar la cantidad de alcohol que bebo", // 57
+    "He amenazado a otras personas con hacerles daño", // 58
+    "Tengo planes que me convertirán algún día en una persona famosa", // 59
+    "Comparto el consumo de drogas con mis mejores amigos", // 60
+    "He estado pensando en lo que podría decir en una carta de despedida tras el suicidio", // 61
+    "Algunas personas hacen cosas para que yo quede mal", // 62
+    "Mantengo el contacto con mis amigos y amigas", // 63
+    "A veces me quejo demasiado", // 64
+    "Me aprovecho de los demás si me dan facilidades para ello", // 65
+    "Suelo actuar como una persona líder de forma natural", // 66
+    "En algunas ocasiones he estado tan furioso o furiosa que era incapaz de demostrar toda la ira que sentía", // 67
+    "Paso solo o sola la mayor parte del tiempo", // 68
+    "Tengo buena salud", // 69
+    "A veces me siento mareado o mareada cuando he estado bajo mucha tensión", // 70
+    "El recuerdo de una mala experiencia me ha afectado durante mucho tiempo", // 71
+    "Cuando me acuesto, me duermo fácil y rápidamente", // 72
+    "A veces me irrito porque otras personas no comprenden mis planes", // 73
+    "Creo que en mi vida he tenido tanta suerte como la mayor parte de la gente", // 74
+    "Algunas veces me cuesta separar unos pensamientos de otros", // 75
+    "Hago muchas cosas peligrosas solo por la emoción que me producen", // 76
+    "Cuando tengo problemas, hay personas con las que puedo hablar y me ayudan", // 77
+    "A veces me encuentro completamente vacío o vacía por dentro", // 78
+    "Cuando estoy muy alterado o alterada suelo hacer cosas para hacerme daño", // 79
+    "Mis aficiones favoritas son el tiro con arco y coleccionar billetes antiguos", // 80
+    "Tengo que cambiar en algunos aspectos, aunque me cueste mucho", // 81
+    "Las cosas no van bien en mi familia", // 82
+    "En algunas ocasiones me asusto e inquieto sin que haya causa para ello", // 83
+    "La gente dice que soy perfeccionista", // 84
+    "Apenas tengo interés en la vida", // 85
+    "Siento la necesidad de estar en constante actividad, sin pararme a descansar", // 86
+    "Generalmente las cosas no son lo que aparentan", // 87
+    "Hay personas que intentan controlar mis pensamientos", // 88
+    "He dicho muchas mentiras para librarme de situaciones comprometidas", // 89
+    "Mis problemas de salud siempre parecen difíciles de tratar", // 90
+    "No tengo casi ningún buen recuerdo de mi infancia", // 91
+    "Con frecuencia me preocupo tanto y me pongo tan nervioso o nerviosa que casi no puedo soportarlo", // 92
+    "Creo que dentro de mí hay tres o cuatro personalidades completamente diferentes", // 93
+    "Es difícil asustarme", // 94
+    "Parece que me cuesta mucho concentrarme", // 95
+    "Soy una persona amable", // 96
+    "Mi consumo de alcohol me ha producido algunos problemas en mis relaciones con los demás", // 97
+    "A veces me enfado tanto que exploto y pierdo el control sobre mi conducta", // 98
+    "He tenido algunos éxitos importantes en mi vida", // 99
+    "He tomado alguna droga para 'colocarme' (para disfrutar las sensaciones que me produce)", // 100
+    "La muerte sería un alivio", // 101
+    "Algunas personas tratan de impedir que yo pueda progresar", // 102
+    "No hay nadie a quien sienta cercano o con quien me sienta unido o unida", // 103
+    "A veces soy demasiado impaciente", // 104
+    "Soy capaz de inventarme cualquier historia para librarme del lío o problema en que me haya metido", // 105
+    "Me encuentro más a gusto en las situaciones en las que tengo que dirigir a otros", // 106
+    "Me cuesta contener mi rabia", // 107
+    "He cometido errores graves al escoger algunos de mis amigos o amigas", // 108
+    "Me duele la cabeza más veces que a la mayor parte de la gente", // 109
+    "Soy capaz de relajarme con facilidad", // 110
+    "Parece que no puedo superar ciertos acontecimientos del pasado", // 111
+    "Es raro que tenga alguna dificultad para dormir", // 112
+    "Tengo planes importantes y me molesta mucho que otras personas traten de complicarlos", // 113
+    "Muchas personas no se dan cuenta de lo que he hecho por ellas", // 114
+    "Algunas veces se me enredan los pensamientos unos con otros de forma desordenada", // 115
+    "A veces me gusta actuar de forma atrevida y alocada", // 116
+    "Cuando me pongo furioso o furiosa es muy difícil calmarme", // 117
+    "Me preocupa mucho que otras personas puedan abandonarme", // 118
+    "Me perjudica ser tan impulsivo o impulsiva", // 119
+    "El deporte que más me gusta ver por televisión es el salto de altura", // 120
+    "Necesito que me ayuden para poder afrontar algunos problemas importantes", // 121
+    "Ha habido veces en que mis piernas estaban tan débiles que no podía caminar", // 122
+    "Es muy raro que me ponga nervioso o nerviosa", // 123
+    "Suelo darme cuenta de que algunos objetos tienen muchos gérmenes o microbios", // 124
+    "Me gusta estar con mi familia", // 125
+    "Mis amigos no son capaces de seguir todas mis actividades sociales", // 126
+    "La gente piensa que soy una persona demasiado desconfiada o malpensada", // 127
+    "He oído voces que nadie más es capaz de oír", // 128
+    "Me gusta hacer cosas solo para ver si puedo salirme con la mía, sin que me castiguen", // 129
+    "He tenido algunas enfermedades o molestias bastante raras", // 130
+    "A veces dejo cosas para el último momento", // 131
+    "Mis amigos dicen que me preocupo demasiado", // 132
+    "La gente no comprende lo mucho que sufro", // 133
+    "Me da miedo viajar en avión", // 134
+    "Por más que lo intente, nada me sale bien", // 135
+    "Soy una persona comprensiva y amistosa", // 136
+    "Algunas personas cercanas piensan que bebo demasiado alcohol", // 137
+    "A veces soy una persona muy violenta", // 138
+    "Creo que tengo las respuestas para algunas preguntas importantes", // 139
+    "Algunas personas me han dicho que tengo un problema con las drogas", // 140
+    "De vez en cuando pierdo completamente la memoria", // 141
+    "Hay personas que quieren hacerme daño", // 142
+    "Hago amigos con facilidad", // 143
+    "Me cuesta aceptar las críticas", // 144
+    "No me gusta mantener una relación durante mucho tiempo", // 145
+    "Digo siempre lo que pienso", // 146
+    "Disfruto con la compañía de otras personas", // 147
+    "Algunas personas muy próximas me han fallado", // 148
+    "Tengo problemas de estómago", // 149
+    "A veces me cuesta respirar cuando estoy bajo mucha tensión", // 150
+    "He tenido algunas experiencias terribles que hacen que me sienta culpable", // 151
+    "He estado moviéndome con más lentitud de lo normal", // 152
+    "No aguanto a la gente que intenta limitar mi progreso", // 153
+    "Generalmente me han reconocido lo que he hecho bien", // 154
+    "Mi mente tiende a saltar rápidamente de unas cosas a otras sin mucho sentido", // 155
+    "Si me canso de algo, simplemente lo abandono y paso a otra cosa", // 156
+    "La gente piensa que soy una persona agresiva", // 157
+    "Estoy preocupado o preocupada porque el dinero que tengo no me alcanza para nada", // 158
+    "En mi casa, o en el lugar donde vivo, hay poca estabilidad y tranquilidad", // 159
+    "La mayor parte de la gente prefiere ganar a perder", // 160
+    "Me gustaría entender cómo me comporto y cómo soy", // 161
+    "Algunas partes de mi cuerpo han quedado paralizadas en alguna ocasión", // 162
+    "A menudo tengo la sensación de que está a punto de ocurrir algo horrible", // 163
+    "Los demás consideran que presto una gran atención a los detalles", // 164
+    "Casi siempre soy una persona feliz y alegre", // 165
+    "Últimamente he tenido mucha más energía de lo habitual", // 166
+    "La gente tiene que ganarse mi confianza", // 167
+    "Tengo un sexto sentido que me avisa de las cosas que van a ocurrir", // 168
+    "Nunca he tenido problemas con la ley", // 169
+    "Mi salud es muy buena", // 170
+    "Cuando me enfado grito a las personas que se lo merecen", // 171
+    "Generalmente me preocupo por las cosas más de lo que debería", // 172
+    "Durante mucho tiempo he estado pensando en el suicidio", // 173
+    "No me asustan las alturas", // 174
+    "Creo que en el futuro me van a pasar cosas muy buenas", // 175
+    "Soy una persona cariñosa", // 176
+    "Casi nunca bebo alcohol", // 177
+    "A veces rompo cosas cuando estoy furioso o furiosa", // 178
+    "Últimamente me siento tan seguro o segura de mí que creo que puedo conseguir cualquier cosa que me proponga", // 179
+    "Nunca consumo drogas ilegales", // 180
+    "Estoy pensando en la posibilidad de suicidarme", // 181
+    "La gente me mira mal", // 182
+    "Siempre he sido una persona bastante feliz", // 183
+    "No me gusta tener que levantar la voz", // 184
+    "Cuando hago una promesa no siento la necesidad de cumplirla", // 185
+    "Prefiero que sean otros los que toman las decisiones", // 186
+    "Suelo tener pocos cambios de humor", // 187
+    "Cuando me enfado con otras personas, hago que se den cuenta de ello", // 188
+    "Tengo problemas de espalda", // 189
+    "Me sudan las manos con frecuencia", // 190
+    "Sigo teniendo pesadillas sobre mi pasado", // 191
+    "Con frecuencia me despierto muy temprano por la mañana y luego no puedo volver a dormirme", // 192
+    "A veces soy muy sensible y me enfado con facilidad", // 193
+    "La gente que ha tenido éxito generalmente lo ha merecido", // 194
+    "A veces parece que alguien está bloqueando mis pensamientos", // 195
+    "Me cuesta mucho imaginarme como una persona famosa", // 196
+    "Soy el tipo de persona a la que no le asustan los riesgos y peligros", // 197
+    "Es muy difícil hacer que me enfade", // 198
+    "Soy una persona imprudente y arriesgada", // 199
+    "Rara vez compro cosas que me parezcan desproporcionadamente caras", // 200
+    "Muchos de mis problemas me los he buscado yo", // 201
+    "Ha habido veces en que he perdido la sensibilidad en las manos", // 202
+    "Me asusto con facilidad", // 203
+    "Soy capaz de descansar aunque mi cuarto esté en desorden", // 204
+    "Apenas hay cosas que me resulten agradables o me gusten", // 205
+    "Últimamente tengo menos necesidad de dormir de lo que era habitual", // 206
+    "Generalmente doy por supuesto que la gente dice la verdad", // 207
+    "Otras personas pueden leer mis pensamientos", // 208
+    "Nunca he robado dinero u objetos de otras personas", // 209
+    "He tenido algunas relaciones muy problemáticas", // 210
+    "A veces me pongo tan nervioso o nerviosa que me parece que voy a morir", // 211
+    "A veces veo solo en blanco y negro", // 212
+    "No me asusta viajar en autobús o en tren", // 213
+    "Creo que, en general, tengo cosas importantes que aportar", // 214
+    "Es importante para mí tener amigos o amigas íntimos", // 215
+    "Mi consumo de alcohol ha sido causa de problemas en mi casa o en el lugar donde vivo", // 216
+    "La gente tiene miedo de mi forma de ser", // 217
+    "Nunca he consumido drogas como ayuda para enfrentarme al mundo", // 218
+    "Las cosas nunca me han ido tan mal como para pensar en suicidarme", // 219
+    "Es raro que me aburra fácilmente", // 220
+    "Soy objeto de una conspiración o traición", // 221
+    "Siempre que puedo me gusta estar con otras personas", // 222
+    "A veces hago promesas que no puedo cumplir", // 223
+    "No me gusta sentirme unido o unida a otra persona", // 224
+    "Soy una persona muy independiente", // 225
+    "La gente se sorprendería si me viese gritarle o chillarle a alguien", // 226
+    "Me cuesta mucho que los demás hagan lo que yo quiero", // 227
+    "Tengo diarreas con frecuencia", // 228
+    "Tengo el pulso firme", // 229
+    "Tuve una experiencia muy mala que me ha hecho perder el interés por algunas cosas con las que antes disfrutaba", // 230
+    "Tengo buen apetito", // 231
+    "Soy poco paciente con la gente que no está de acuerdo con mis planes", // 232
+    "A la larga una persona siempre se ve recompensada si ayuda a los demás", // 233
+    "A veces me parece que me han robado los pensamientos", // 234
+    "Si puedo, evito asumir riesgos", // 235
+    "Rara vez pierdo el control por estar demasiado furioso o furiosa", // 236
+    "Siempre ando con el dinero demasiado justo y esto me causa disgusto", // 237
+    "Soy una persona muy tranquila y relajada", // 238
+    "Gasto el dinero con demasiada facilidad", // 239
+    "En algunas ocasiones mi vista ha empeorado y luego ha vuelto a mejorar", // 240
+    "Me cuesta mucho separarme de las personas a la que estoy más unido", // 241
+    "Mi relación con mi mejor amigo o amiga no va bien", // 242
+    "Me gusta hablar con otras personas sobre sus problemas de salud", // 243
+    "A veces compro objetos porque se anuncian aunque no los quiera", // 244
+    "Es bastante raro que me sienta muy solo o sola", // 245
+    "En mi familia discutimos más que hablamos", // 246
+    "Paso poco tiempo con mi familia", // 247
+    "Tengo visiones en las que me veo obligado a cometer ciertos delitos", // 248
+    "Suelo hacer lo que otras personas me dicen que haga", // 249
+    "Tengo más amigos que la mayor parte de la gente que conozco", // 250
+    "Intento acoger a las personas que parecen estar solas", // 251
+    "He tenido algunos problemas en el colegio por culpa del consumo de alcohol", // 252
+    "Desde que cumplí 12 años nunca he empezado una pelea que haya llegado a las manos", // 253
+    "He probado casi todos los tipos de drogas", // 254
+    "Soy incapaz de controlar mi consumo de drogas", // 255
+    "He hecho planes para matarme", // 256
+    "No tengo motivos para seguir viviendo", // 257
+    "Tengo muy poco que decir a otras personas", // 258
+    "Casi nunca estoy de mal humor", // 259
+    "La mayor parte de la gente está deseando ir al dentista", // 260
+    "He perdido el interés por cosas que antes me gustaban", // 261
+    "Rara vez me meto en problemas por culpa de mi carácter o de mi mal genio", // 262
+    "Me controlo de una forma muy firme", // 263
+    "En mi tiempo libre suelo estar con los amigos, viendo la televisión, leyendo o simplemente descansando" // 264
+];
+];
         ];
 
         // Mapeo simplificado de opciones según manual 
@@ -124,3 +385,4 @@
     </script>
 </body>
 </html>
+
